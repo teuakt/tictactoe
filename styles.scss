@@ -1,0 +1,290 @@
+@import "./css/_reset.scss";
+
+* {
+    font-size: calculator-rem(16);
+    font-weight: 400;
+    line-height: 24px;
+}
+body {
+    background-color: $lightBlue;
+    display: flex;
+    color: grey;
+    height: 100vh;
+    justify-content: center;
+}
+
+.tictactoe {
+    display: flex;
+    &__menu {
+        width: 390px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $darkBlue;
+        padding: 30px 35px 50px 35px;
+        box-sizing: border-box;
+        &-player {
+            display: flex;
+            flex-direction: column;
+        }
+        &-player-div {
+            display: flex;
+            background-color: white;
+            color: $grey;
+            width: 320px;
+            height: 50px;
+            padding: 15px 9px 15px 12px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+        &-player-input {
+            width: 75%;
+            outline: transparent;
+            border: none;
+        }
+        &-player-swap {
+            background-color: $lightBlue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            width: 56px;
+            height: 32px;
+            border-radius: 100px;
+            border: 1px solid $white;
+            padding: 4px;
+            box-sizing: border-box;
+            cursor: pointer;
+            &--holder {
+                background-color: $white;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+            }
+        }
+    }
+    &__match-type {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        width: 320px;
+        margin-top: 40px;
+        &--title {
+            width: 100%;
+            text-align: center;
+            color: $green;
+            font-weight: 700;
+        }
+        &-choose {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            color: $white;
+            &--holder {
+                background-color: $darkBlue;
+            }
+        }
+    }
+    &__start-button {
+        width: 320px;
+        height: 55px;
+        background-color: $green;
+        margin-top: 45px;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        font-size: calculator-rem(24);
+        font-weight: 500;
+        color: $white;
+        &:hover {
+            background-color: lighten($green, 20%);
+        }
+    }
+    &__match-history {
+        margin-top: 40px;
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        &--title {
+            font-weight: 700;
+            color: $white;
+            width: 100%;
+            text-align: center;
+        }
+        &-box {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            color: $white;
+            font-size: calculator-rem(14);
+        }
+        &-box-div1 {
+            width: 50%;
+            height: 50px;
+            background-color: $white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 10px;
+            padding: 3px 15px;
+            box-sizing: border-box;
+            &--winner {
+                font-weight: 700;
+                color: $green;
+                line-height: 14px;
+            }
+            &--move {
+                line-height: 14px;
+                margin-top: 7px;
+                color: $grey;
+            }
+        }
+        &-box-div2 {
+            margin-left: 26px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+        &-box-div2-result {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-left: 25px;
+            &--past-match {
+                width: 15px;
+                height: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: calculator-rem(12);
+                font-weight: 700;
+                background-color: $white;
+                color: $grey;
+                border-radius: 2px;
+            }
+        }
+    }
+    &__restart-button {
+        background-color: $white;
+        color: $darkBlue;
+        margin-top: 100px;
+        &:hover {
+            background-color: darken($white, 10%);
+        }
+    }
+    &__game {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 600px;
+        padding: 50px;
+        box-sizing: border-box;
+        &-scoreboard {
+            width: 400px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 30px 20px 30px;
+            background-color: $white;
+            border-radius: 15px;
+            box-sizing: border-box;
+        }
+        &-scoreboard-scores {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+        &-scoreboard--title {
+            font-size: calculator-rem(24);
+            font-weight: 700;
+            color: $lightBlue;
+        }
+        &-scoreboard--score {
+            font-size: calculator-rem(48);
+            font-weight: 700;
+            color: $darkBlue;
+            line-height: calculator-rem(48);
+        }
+        &-battlefield {
+            margin-top: 90px;
+            width: 510px;
+            height: 510px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            &--match {
+                width: 160px;
+                height: 160px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: calculator-rem(130);
+                font-weight: 700;
+                background-color: $white;
+                color: $grey;
+                border-radius: 15px;
+            }
+        }
+    }
+    &__history {
+        width: 390px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $darkBlue;
+        padding: 30px 35px 50px 35px;
+        box-sizing: border-box;
+        &--title {
+            margin-top: 30px;
+            font-size: calculator-rem(16);
+            font-weight: 700;
+            color: $white;
+        }
+        &-box {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        &-movements {
+            margin-top: 20px;
+            width: 320px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            padding: 5px 10px 10px 10px;
+            box-sizing: border-box;
+            background-color: $white;
+            &--move {
+                font-size: calculator-rem(48);
+                font-weight: 700;
+            }
+        }
+        &-texts {
+            margin-left: 15px;
+            font-size: calculator-rem(14);
+            box-sizing: border-box;
+            padding: 3px 0;
+            &--player {
+                font-weight: 700;
+                line-height: 20px;
+            }
+            &--place {
+                color: $darkBlue;
+                line-height: 20px;
+            }
+        }
+    }
+}
