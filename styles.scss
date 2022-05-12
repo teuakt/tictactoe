@@ -29,6 +29,7 @@ body {
         }
         &-player-div {
             display: flex;
+            align-items: center;
             background-color: white;
             color: $grey;
             width: 320px;
@@ -37,6 +38,19 @@ body {
             border-radius: 10px;
             box-sizing: border-box;
             margin-top: 20px;
+            @keyframes inputBorder{
+                100% {
+                    box-shadow: 0 0 0.6em black;
+                }
+            }
+            &:focus-within {
+                animation-name: inputBorder;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                animation-delay: 0.2s;
+                animation-direction: alternate;
+            }
+
         }
         &-player-input {
             width: 75%;
@@ -235,6 +249,7 @@ body {
                 background-color: $white;
                 color: $grey;
                 border-radius: 15px;
+                cursor: pointer;
             }
         }
     }

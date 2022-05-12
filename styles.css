@@ -193,6 +193,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: white;
   color: #828282;
   width: 320px;
@@ -202,6 +205,33 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-top: 20px;
+}
+
+@-webkit-keyframes inputBorder {
+  100% {
+    -webkit-box-shadow: 0 0 0.6em black;
+            box-shadow: 0 0 0.6em black;
+  }
+}
+
+@keyframes inputBorder {
+  100% {
+    -webkit-box-shadow: 0 0 0.6em black;
+            box-shadow: 0 0 0.6em black;
+  }
+}
+
+.tictactoe__menu-player-div:focus-within {
+  -webkit-animation-name: inputBorder;
+          animation-name: inputBorder;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
 }
 
 .tictactoe__menu-player-input {
@@ -525,6 +555,7 @@ body {
   background-color: #FFFFFF;
   color: #828282;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .tictactoe__history {
