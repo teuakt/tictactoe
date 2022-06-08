@@ -143,8 +143,18 @@ table {
   line-height: 24px;
 }
 
+* ::-webkit-scrollbar {
+  width: 7px;
+  margin-right: 5px;
+}
+
+* ::-webkit-scrollbar-thumb {
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
 body {
-  background-color: #2BA9EA;
+  background-color: #1ba4a4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -159,6 +169,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 850px;
+  border-bottom: 1px solid #FFFFFF;
 }
 
 .tictactoe__menu {
@@ -173,7 +185,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #0097E6;
   padding: 30px 35px 50px 35px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -200,38 +211,40 @@ body {
   color: #828282;
   width: 320px;
   height: 50px;
-  padding: 15px 9px 15px 12px;
+  padding: 15px 0 15px 12px;
   border-radius: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-top: 20px;
+  border: 1px solid transparent;
 }
 
 @-webkit-keyframes inputBorder {
   100% {
-    -webkit-box-shadow: 0 0 0.6em black;
-            box-shadow: 0 0 0.6em black;
+    -webkit-box-shadow: 0 0 1em #00eeee;
+            box-shadow: 0 0 1em #00eeee;
   }
 }
 
 @keyframes inputBorder {
   100% {
-    -webkit-box-shadow: 0 0 0.6em black;
-            box-shadow: 0 0 0.6em black;
+    -webkit-box-shadow: 0 0 1em #00eeee;
+            box-shadow: 0 0 1em #00eeee;
   }
 }
 
 .tictactoe__menu-player-div:focus-within {
   -webkit-animation-name: inputBorder;
           animation-name: inputBorder;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
+  border: 1px solid #00eeee;
 }
 
 .tictactoe__menu-player-input {
@@ -241,7 +254,7 @@ body {
 }
 
 .tictactoe__menu-player-swap {
-  background-color: #2BA9EA;
+  background-color: #00bbbb;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -252,14 +265,14 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   width: 56px;
   height: 32px;
   border-radius: 100px;
   border: 1px solid #FFFFFF;
-  padding: 4px;
+  padding: 2px 3px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   cursor: pointer;
@@ -267,9 +280,28 @@ body {
 
 .tictactoe__menu-player-swap--holder {
   background-color: #FFFFFF;
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tictactoe__menu-player-swap.active > .tictactoe__menu-player-swap--holder {
+  -webkit-transform: translateX(21px);
+          transform: translateX(21px);
+  background-color: #1ba4a4;
+}
+
+.tictactoe__menu-player-swap.active.tictactoe__menu-player-swap {
+  border: 1px solid #1ba4a4;
+  background-color: #FFFFFF;
+}
+
+.tictactoe__menu-player-swap.active.tictactoe__match-type-choose--holder {
+  border: 1px solid #00bbbb;
 }
 
 .tictactoe__match-type {
@@ -289,7 +321,7 @@ body {
 .tictactoe__match-type--title {
   width: 100%;
   text-align: center;
-  color: #45F391;
+  color: #15f075;
   font-weight: 700;
 }
 
@@ -308,13 +340,13 @@ body {
 }
 
 .tictactoe__match-type-choose--holder {
-  background-color: #0097E6;
+  background-color: #1ba4a4;
 }
 
 .tictactoe__start-button {
   width: 320px;
   height: 55px;
-  background-color: #45F391;
+  background-color: #15f075;
   margin-top: 45px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -329,7 +361,7 @@ body {
 }
 
 .tictactoe__start-button:hover {
-  background-color: #a5f9ca;
+  background-color: #75f6ad;
 }
 
 .tictactoe__match-history {
@@ -351,14 +383,27 @@ body {
   text-align: center;
 }
 
+.tictactoe__match-history-list {
+  margin-top: 20px;
+  width: 330px;
+  height: 250px;
+  overflow: auto;
+  border-left: 1px solid white;
+  padding-left: 5px;
+}
+
 .tictactoe__match-history-box {
   margin-top: 20px;
-  width: 100%;
+  width: 320px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   color: #FFFFFF;
   font-size: 0.875rem;
+}
+
+.tictactoe__match-history-box:first-of-type {
+  margin-top: 5px;
 }
 
 .tictactoe__match-history-box-div1 {
@@ -383,7 +428,7 @@ body {
 
 .tictactoe__match-history-box-div1--winner {
   font-weight: 700;
-  color: #45F391;
+  color: #15f075;
   line-height: 14px;
 }
 
@@ -443,8 +488,8 @@ body {
 
 .tictactoe__restart-button {
   background-color: #FFFFFF;
-  color: #0097E6;
-  margin-top: 100px;
+  color: #1ba4a4;
+  margin-top: 24px;
 }
 
 .tictactoe__restart-button:hover {
@@ -464,6 +509,7 @@ body {
           align-items: center;
   width: 600px;
   padding: 50px;
+  background-color: #00bbbb;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -484,7 +530,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 10px 30px 20px 30px;
+  padding: 10px 20px 20px 20px;
   background-color: #FFFFFF;
   border-radius: 15px;
   -webkit-box-sizing: border-box;
@@ -507,18 +553,23 @@ body {
 .tictactoe__game-scoreboard--title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2BA9EA;
+  color: #00bbbb;
+}
+
+.tictactoe__game-scoreboard--name {
+  font-weight: 700;
+  color: #147878;
 }
 
 .tictactoe__game-scoreboard--score {
   font-size: 3rem;
   font-weight: 700;
-  color: #0097E6;
+  color: #1ba4a4;
   line-height: 3rem;
 }
 
 .tictactoe__game-battlefield {
-  margin-top: 90px;
+  margin-top: 80px;
   width: 510px;
   height: 510px;
   display: -webkit-box;
@@ -570,7 +621,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #0097E6;
   padding: 30px 35px 50px 35px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -584,7 +634,11 @@ body {
 }
 
 .tictactoe__history-box {
+  padding-left: 5px;
   margin-top: 10px;
+  width: 340px;
+  height: 700px;
+  border-left: 1px solid #FFFFFF;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -592,12 +646,13 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow: auto;
 }
 
 .tictactoe__history-movements {
-  margin-top: 20px;
+  margin-top: 19px;
   width: 320px;
-  height: 50px;
+  height: 55px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -616,7 +671,18 @@ body {
   font-weight: 700;
 }
 
+.tictactoe__history-movements:first-of-type {
+  margin-top: 5px;
+}
+
 .tictactoe__history-texts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-left: 15px;
   font-size: 0.875rem;
   -webkit-box-sizing: border-box;
@@ -626,11 +692,12 @@ body {
 
 .tictactoe__history-texts--player {
   font-weight: 700;
-  line-height: 20px;
+  color: #00d5d5;
+  line-height: 28px;
 }
 
 .tictactoe__history-texts--place {
-  color: #0097E6;
-  line-height: 20px;
+  color: #1ba4a4;
+  line-height: 15px;
 }
 /*# sourceMappingURL=styles.css.map */

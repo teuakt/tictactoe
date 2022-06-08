@@ -4,9 +4,17 @@
     font-size: calculator-rem(16);
     font-weight: 400;
     line-height: 24px;
+    ::-webkit-scrollbar {
+        width: 7px;
+        margin-right: 5px;
+      }
+    ::-webkit-scrollbar-thumb {
+        background: $white;
+        border-radius: 10px;
+      }  
 }
 body {
-    background-color: $lightBlue;
+    background-color: $darkBlue;
     display: flex;
     color: grey;
     height: 100vh;
@@ -15,12 +23,13 @@ body {
 
 .tictactoe {
     display: flex;
+    height: 850px;
+    border-bottom: 1px solid $white;
     &__menu {
         width: 390px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: $darkBlue;
         padding: 30px 35px 50px 35px;
         box-sizing: border-box;
         &-player {
@@ -34,21 +43,23 @@ body {
             color: $grey;
             width: 320px;
             height: 50px;
-            padding: 15px 9px 15px 12px;
+            padding: 15px 0 15px 12px;
             border-radius: 10px;
             box-sizing: border-box;
             margin-top: 20px;
+            border: 1px solid transparent;
             @keyframes inputBorder{
                 100% {
-                    box-shadow: 0 0 0.6em black;
+                    box-shadow: 0 0 1em lighten($lightBlue,10%);
                 }
             }
             &:focus-within {
                 animation-name: inputBorder;
-                animation-duration: 2s;
+                animation-duration: 1s;
                 animation-iteration-count: infinite;
-                animation-delay: 0.2s;
+                animation-delay: 0.1s;
                 animation-direction: alternate;
+                border: 1px solid lighten($lightBlue,10%);
             }
 
         }
@@ -62,19 +73,37 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-end;
+            align-items: flex-start;
             width: 56px;
             height: 32px;
             border-radius: 100px;
             border: 1px solid $white;
-            padding: 4px;
+            padding: 2px 3px;
             box-sizing: border-box;
+
             cursor: pointer;
             &--holder {
                 background-color: $white;
-                width: 24px;
-                height: 24px;
+                width: 25px;
+                height: 25px;
                 border-radius: 50%;
+                transition: 250ms;
+                box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+            }
+        }
+        &-player-swap {
+            &.active {
+                & > .tictactoe__menu-player-swap--holder{
+                    transform: translateX(21px);
+                    background-color: $darkBlue;
+                }
+                &.tictactoe__menu-player-swap {
+                    border: 1px solid $darkBlue;
+                    background-color: $white;
+                }
+                &.tictactoe__match-type-choose--holder{
+                    border: 1px solid $lightBlue;
+                }
             }
         }
     }
@@ -129,12 +158,24 @@ body {
             width: 100%;
             text-align: center;
         }
+        &-list {
+            margin-top: 20px;
+            width: 330px;
+            height: 250px;
+            overflow: auto;
+            border-left: 1px solid white;
+            padding-left: 5px;
+
+        }
         &-box {
             margin-top: 20px;
-            width: 100%;
+            width: 320px;
             display: flex;
             color: $white;
             font-size: calculator-rem(14);
+        }
+        &-box:first-of-type {
+            margin-top: 5px;
         }
         &-box-div1 {
             width: 50%;
@@ -188,7 +229,7 @@ body {
     &__restart-button {
         background-color: $white;
         color: $darkBlue;
-        margin-top: 100px;
+        margin-top: 24px;
         &:hover {
             background-color: darken($white, 10%);
         }
@@ -199,6 +240,7 @@ body {
         align-items: center;
         width: 600px;
         padding: 50px;
+        background-color: $lightBlue;
         box-sizing: border-box;
         &-scoreboard {
             width: 400px;
@@ -207,7 +249,7 @@ body {
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 30px 20px 30px;
+            padding: 10px 20px 20px 20px;
             background-color: $white;
             border-radius: 15px;
             box-sizing: border-box;
@@ -223,6 +265,10 @@ body {
             font-weight: 700;
             color: $lightBlue;
         }
+        &-scoreboard--name {
+            font-weight: 700;
+            color: darken($darkBlue, 10%);
+        }
         &-scoreboard--score {
             font-size: calculator-rem(48);
             font-weight: 700;
@@ -230,7 +276,7 @@ body {
             line-height: calculator-rem(48);
         }
         &-battlefield {
-            margin-top: 90px;
+            margin-top: 80px;
             width: 510px;
             height: 510px;
             display: flex;
@@ -258,7 +304,6 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: $darkBlue;
         padding: 30px 35px 50px 35px;
         box-sizing: border-box;
         &--title {
@@ -268,37 +313,49 @@ body {
             color: $white;
         }
         &-box {
+            padding-left: 5px;
             margin-top: 10px;
+            width: 340px;
+            height: 700px;
+            border-left: 1px solid $white;
             display: flex;
             flex-direction: column;
+            overflow: auto;
         }
         &-movements {
-            margin-top: 20px;
+            margin-top: 19px;
             width: 320px;
-            height: 50px;
+            height: 55px;
             display: flex;
             align-items: center;
             border-radius: 10px;
             padding: 5px 10px 10px 10px;
             box-sizing: border-box;
             background-color: $white;
+
             &--move {
                 font-size: calculator-rem(48);
                 font-weight: 700;
             }
         }
+        &-movements:first-of-type {
+            margin-top: 5px;
+          }
         &-texts {
+            display: flex;
+            flex-direction: column;
             margin-left: 15px;
             font-size: calculator-rem(14);
             box-sizing: border-box;
             padding: 3px 0;
             &--player {
                 font-weight: 700;
-                line-height: 20px;
+                color: lighten($lightBlue, 5%);
+                line-height: 28px;
             }
             &--place {
                 color: $darkBlue;
-                line-height: 20px;
+                line-height: 15px;
             }
         }
     }

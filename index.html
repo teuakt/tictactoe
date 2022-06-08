@@ -13,17 +13,21 @@
         <div class="tictactoe__menu-player">
           <div class="tictactoe__menu-player-div">
             <input
-              class="tictactoe__menu-player-input"
+              class="tictactoe__menu-player-input player-field1"
               type="text"
               placeholder="Jogador 1"
+              value="Carrapato"
+              maxlength="9"
             />
           </div>
           <div class="tictactoe__menu-player">
             <div class="tictactoe__menu-player-div">
               <input
-                class="tictactoe__menu-player-input"
+                class="tictactoe__menu-player-input player-field2"
                 type="text"
                 placeholder="Jogador 2"
+                value="Limoeiro"
+                maxlength="9"
               />
               <div class="tictactoe__menu-player-swap">
                 <div class="tictactoe__menu-player-swap--holder"></div>
@@ -35,9 +39,7 @@
           <span class="tictactoe__match-type--title">Tipo de Partida</span>
           <div class="tictactoe__match-type-choose">
             <span>Melhor de 3</span>
-            <div
-              class="tictactoe__menu-player-swap tictactoe__match-type-choose--holder"
-            >
+            <div class="tictactoe__menu-player-swap tictactoe__match-type-choose--holder">
               <div class="tictactoe__menu-player-swap--holder"></div>
             </div>
             <span>Melhor de 5</span>
@@ -45,122 +47,18 @@
         </div>
         <button class="tictactoe__start-button">Jogar</button>
         <div class="tictactoe__match-history">
-          <span class="tictactoe__match-history--title"
-            >Histórico de Partidas</span
-          >
-          <div class="tictactoe__match-history-box">
-            <div class="tictactoe__match-history-box-div1">
-              <span class="tictactoe__match-history-box-div1--winner"
-                >Vencedor</span
-              >
-              <span class="tictactoe__match-history-box-div1--move"
-                >Primeiro Quadrado</span
-              >
-            </div>
-            <div class="tictactoe__match-history-box-div2">
-              <span>Cenário</span>
-              <div class="tictactoe__match-history-box-div2-result">
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >O</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >O</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >X</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >O</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >X</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >X</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                >
-                </span>
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >O</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >X
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="tictactoe__match-history-box">
-            <div class="tictactoe__match-history-box-div1">
-              <span class="tictactoe__match-history-box-div1--winner"
-                >Vencedor</span
-              >
-              <span class="tictactoe__match-history-box-div1--move"
-                >Primeiro Quadrado</span
-              >
-            </div>
-            <div class="tictactoe__match-history-box-div2">
-              <span>Cenário</span>
-              <div class="tictactoe__match-history-box-div2-result">
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >X</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >X</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >X</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >O</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >X</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >O</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                >
-                </span>
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >O</span
-                >
-                <span
-                  class="tictactoe__match-history-box-div2-result--past-match"
-                  >O</span
-                >
-              </div>
-            </div>
-          </div>
+          <span class="tictactoe__match-history--title">Histórico de Partidas</span>
+          <ul class="tictactoe__match-history-list">
+          </ul>
         </div>
-        <button class="tictactoe__start-button tictactoe__restart-button">
-          Reiniciar
-        </button>
+        <button class="tictactoe__start-button tictactoe__restart-button">Reiniciar</button>
       </div>
       <div class="tictactoe__game">
         <div class="tictactoe__game-scoreboard">
           <h1 class="tictactoe__game-scoreboard--title">Placar</h1>
           <div class="tictactoe__game-scoreboard-scores">
             <h2 class="tictactoe__game-scoreboard--score player1-score">00</h2>
-            <span class="player-turn">Jogador 1</span>
+            <span class="winner-name">Aguardando...</span>
             <h2 class="tictactoe__game-scoreboard--score player2-score">00</h2>
           </div>
         </div>
@@ -178,80 +76,7 @@
       </div>
       <div class="tictactoe__history">
         <h1 class="tictactoe__history--title">Histórico de Jogadas</h1>
-        <div class="tictactoe__history-box">
-          <div class="tictactoe__history-movements">
-            <span class="tictactoe__history-movements--move">O</span>
-            <div class="tictactoe__history-texts">
-              <span class="tictactoe__history-texts--player">Jogador 1</span>
-              <span class="tictactoe__history-texts--place"
-                >Primeiro Quadrado</span
-              >
-            </div>
-          </div>
-          <div class="tictactoe__history-movements">
-            <span class="tictactoe__history-movements--move">X</span>
-            <div class="tictactoe__history-texts">
-              <span class="tictactoe__history-texts--player">Jogador 2</span>
-              <span class="tictactoe__history-texts--place"
-                >Primeiro Quadrado</span
-              >
-            </div>
-          </div>
-          <div class="tictactoe__history-movements">
-            <span class="tictactoe__history-movements--move">O</span>
-            <div class="tictactoe__history-texts">
-              <span class="tictactoe__history-texts--player">Jogador 1</span>
-              <span class="tictactoe__history-texts--place"
-                >Primeiro Quadrado</span
-              >
-            </div>
-          </div>
-          <div class="tictactoe__history-movements">
-            <span class="tictactoe__history-movements--move">X</span>
-            <div class="tictactoe__history-texts">
-              <span class="tictactoe__history-texts--player">Jogador 2</span>
-              <span class="tictactoe__history-texts--place"
-                >Primeiro Quadrado</span
-              >
-            </div>
-          </div>
-          <div class="tictactoe__history-movements">
-            <span class="tictactoe__history-movements--move">O</span>
-            <div class="tictactoe__history-texts">
-              <span class="tictactoe__history-texts--player">Jogador 1</span>
-              <span class="tictactoe__history-texts--place"
-                >Primeiro Quadrado</span
-              >
-            </div>
-          </div>
-          <div class="tictactoe__history-movements">
-            <span class="tictactoe__history-movements--move">X</span>
-            <div class="tictactoe__history-texts">
-              <span class="tictactoe__history-texts--player">Jogador 2</span>
-              <span class="tictactoe__history-texts--place"
-                >Primeiro Quadrado</span
-              >
-            </div>
-          </div>
-          <div class="tictactoe__history-movements">
-            <span class="tictactoe__history-movements--move">O</span>
-            <div class="tictactoe__history-texts">
-              <span class="tictactoe__history-texts--player">Jogador 1</span>
-              <span class="tictactoe__history-texts--place"
-                >Primeiro Quadrado</span
-              >
-            </div>
-          </div>
-          <div class="tictactoe__history-movements">
-            <span class="tictactoe__history-movements--move">X</span>
-            <div class="tictactoe__history-texts">
-              <span class="tictactoe__history-texts--player">Jogador 2</span>
-              <span class="tictactoe__history-texts--place"
-                >Primeiro Quadrado
-              </span>
-            </div>
-          </div>
-        </div>
+        <ul class="tictactoe__history-box"></ul>
       </div>
     </section>
     <script src="./scripts/index.js"></script>
